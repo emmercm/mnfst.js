@@ -85,10 +85,6 @@ var mnfst = function() {
                   // Special cases
                   if(metaMapping[i].name[j] == 'apple-mobile-web-app-capable' && manifest[metaMapping[i].manifestName] == 'standalone') {
                      manifest[metaMapping[i].manifestName] = 'yes';
-                     metaTags['apple-mobile-web-app-status-bar-style'] = {
-                        name: 'apple-mobile-web-app-status-bar-style',
-                        content: 'black-translucent'
-                     };
                   }
                   // Store properties
                   metaTags[metaMapping[i].name[j]] = {
