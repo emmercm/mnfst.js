@@ -23,8 +23,8 @@ var mnfst = function() {
          name: ['apple-mobile-web-app-title', 'application-name']
       },
       {
-         manifestName: 'background_color',
-         name: ['msapplication-TileColor']
+         manifestName: 'theme_color',
+         name: ['theme-color', 'msapplication-TileColor']
       },
       {
          manifestName: 'start_url',
@@ -85,6 +85,10 @@ var mnfst = function() {
                   // Special cases
                   if(metaMapping[i].name[j] == 'apple-mobile-web-app-capable' && manifest[metaMapping[i].manifestName] == 'standalone') {
                      manifest[metaMapping[i].manifestName] = 'yes';
+                     metaTags['apple-mobile-web-app-status-bar-style'] = {
+                        name: 'apple-mobile-web-app-status-bar-style',
+                        content: 'black-translucent'
+                     };
                   }
                   // Store properties
                   metaTags[metaMapping[i].name[j]] = {
@@ -123,7 +127,7 @@ var mnfst = function() {
                   }
 
                   // apple-touch-icon
-                  linkTags['apple-touch-icon-' + manifest.icons[i].sizes[0] + 'x' + manifest.icons[i].sizes[1]] = {
+                  linkTags['ati-' + manifest.icons[i].sizes[0] + 'x' + manifest.icons[i].sizes[1]] = {
                      rel: 'apple-touch-icon',
                      sizes: manifest.icons[i].sizes[0] + 'x' + manifest.icons[i].sizes[1],
                      href: manifest.icons[i].src
