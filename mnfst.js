@@ -34,14 +34,14 @@ var mnfst = function() {
 
    // Exit if XMLHttpRequest isn't available
    if(!window.XMLHttpRequest) {
-      return 1;
+      return;
    }
 
-   // Find the <head> tag
+   // Find the first <head> tag
    var headTag = document.getElementsByTagName('head');
    if(!headTag.length) {
       // <head> tag not found, exit, we need it for everything
-      return 1;
+      return;
    }
    headTag = headTag[0];
 
@@ -56,7 +56,7 @@ var mnfst = function() {
    }
    if(!manifestHref) {
       // No manifest found, exit, we need it for everything
-      return 1;
+      return;
    }
 
    // Generate full manifest URL
@@ -153,6 +153,4 @@ var mnfst = function() {
    };
    ajax.open('GET', locationHref, true);
    ajax.send();
-
-   return 0;
 }();
