@@ -37,6 +37,12 @@ var mnfst = function() {
       return;
    }
 
+   // Exit if we are in a standalone web app
+   if(('standalone' in window.navigator && window.navigator.standalone) ||
+      ('matchMedia' in window && window.matchMedia('(display-mode:standalone)').matches)) {
+      return;
+   }
+
    // Find the first <head> tag
    var headTag = document.getElementsByTagName('head');
    if(!headTag.length) {
